@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="{{ route('ajout') }}">Créer un utilisateur</a>
                 </div>
             </div>
         </div>
