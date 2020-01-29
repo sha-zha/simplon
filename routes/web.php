@@ -32,11 +32,11 @@ Route::get('/liste', function () {
     return view('liste',compact('users') );
 });
 
-Route::get('/attribuer', function () {
+/*Route::get('/attribuer', function () {
 
-	$attribuer = DB::table('students')->select('nom','prenom')->get();
-
-	['attribuer'=>$attribuer];
 	
-    return view('attribuer',compact('attribuer') );
+    return view('attribuer');
 });
+*/
+
+Route::get('/attribuer','AttributionController@index')->name("attribuer");
