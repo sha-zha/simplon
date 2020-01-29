@@ -24,10 +24,12 @@
 <article class="container ">
     <div class="row">
         <div class="col-md-12 card">
-            <form method="Post" action="#" class="form-group ">
+            <form method="Post" action="{{route('ajouts')}}" class="form-group">
+                @csrf
                 <div class="col-md-6">
-                   <label>Nom:</label>
+                   <label class="control-label">Nom:</label>
                 <input class="form-group" type="text" name="nom"> 
+
                 </div> 
 
                  <div class="col-md-6">

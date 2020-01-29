@@ -20,4 +20,5 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/ajout','AjoutController@index')->name("ajout") ;
+Route::get('/ajout','AjoutController@index')->name("ajout");
+Route::post('/ajouts','AjoutController@store')->name("ajouts");

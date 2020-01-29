@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;
 
 class AjoutController extends Controller
 {
@@ -23,6 +24,21 @@ class AjoutController extends Controller
      */
     public function index()
     {
-        return view('ajout');
+        //return view('ajout');
+    }
+
+      public function store(Request $request)
+    {
+       $this->validate($request,[
+       	'nom'=>'required|min:3',
+       	'prenom'=>'required|min:3'
+       ]);
+
+    	$Student= New Student ([
+    		'nom' =>$request->get('nom'),
+    		'prenom' =>$request->get('prenom')
+    	]);
+
+    	$Student->save();
     }
 }
