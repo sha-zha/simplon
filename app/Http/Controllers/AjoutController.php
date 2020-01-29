@@ -24,7 +24,7 @@ class AjoutController extends Controller
      */
     public function index()
     {
-        //return view('ajout');
+        return view('ajout');
     }
 
       public function store(Request $request)
@@ -40,5 +40,6 @@ class AjoutController extends Controller
     	]);
 
     	$Student->save();
+        return redirect()->route('liste');
     }
 }

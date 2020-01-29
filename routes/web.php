@@ -22,3 +22,21 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/ajout','AjoutController@index')->name("ajout");
 Route::post('/ajouts','AjoutController@store')->name("ajouts");
+
+//Route::get('/liste','ListeController@index')->name('liste');
+
+Route::get('/liste', function () {
+	$users = DB::table('students')->select('nom','prenom')->get();
+
+	['users'=>$users];
+    return view('liste',compact('users') );
+});
+
+Route::get('/attribuer', function () {
+
+	$attribuer = DB::table('students')->select('nom','prenom')->get();
+
+	['attribuer'=>$attribuer];
+	
+    return view('attribuer',compact('attribuer') );
+});
