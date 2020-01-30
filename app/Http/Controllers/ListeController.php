@@ -17,7 +17,8 @@ class ListeController extends Controller
        
          $users = DB::table('students')
          ->join('attribuers', 'students.id', '=', 'attribuers.id_user')->select('nom','prenom','students.id')
-         ->join('computers', 'computers.id', '=', 'attribuers.id_pc')->select('nom','prenom','students.id','label')
+         ->join('computers', 'computers.id', '=', 'attribuers.id_pc')->select('nom','prenom','attribuers.id','label','heure','jour','attribuers.id')
+         ->orderBy('jour', 'desc')
          ->get();
 
     ['users'=>$users];
@@ -87,6 +88,6 @@ class ListeController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
     }
 }

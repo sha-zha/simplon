@@ -105,6 +105,8 @@ class AttribuerController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $liste = Attribuer::find($id);
+        $liste->delete();
+        return redirect()->route('liste');
     }
 }
