@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Liste; 
-
+use DB;
 class ListeController extends Controller
 {
     /**
@@ -15,7 +15,13 @@ class ListeController extends Controller
     public function index()
     {
        
-        return view('liste');
+         $users = DB::table('students')
+         ->join('attribuers', 'students.id', '=', 'attribuers.id_user')->select('nom','prenom','students.id')
+         ->join('computers', 'computers.id', '=', 'attribuers.id_pc')->select('nom','prenom','students.id','label')
+         ->get();
+
+    ['users'=>$users];
+    return view('liste',compact('users') );
     }
 
     /**

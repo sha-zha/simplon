@@ -25,23 +25,11 @@ Route::post('/ajouts','AjoutController@store')->name("ajouts");
 
 //Route::get('/liste','ListeController@index')->name('liste');
 
-Route::get('/liste', function () {
-	$users = DB::table('students')->select('nom','prenom')->get();
-
-	['users'=>$users];
-    return view('liste',compact('users') );
-});
+Route::get('/liste', 'ListeController@index')->name('liste');
 
 Route::get('/attribuer', function () {
-	$users = DB::table('students')->select('nom','prenom','id')->get();
-	$pc = DB::table('computers')->select('label','id')->get();
-	[
-		'users'=>$users,
-		'pc'=>$pc
-	];
 	
-    return view('attribuer',compact('users','pc') );
 });
 Route::post('/attribuers','AttribuerController@store')->name("attribuers");
 
-/*Route::get('/attribuer','AttributionController@index')->name("attribuer");*/
+Route::get('/attribuer','AttribuerController@index')->name("attribuer");

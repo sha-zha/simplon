@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <a href="{{ route('ajout')}}">Créer un utilisateur</a> 
-               
+                <a href="{{ route('liste')}}">Voir la liste des utilisateurs</a> 
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -33,7 +33,7 @@
                 @csrf
                 <div class="col-md-6">
                    <label class="control-label">Sélectionner un utilisateur:</label>
-                <select name="nom">
+                <select name="id_user">
                     <option>Sélectionner un utilisateur</option>
                     @foreach ($users as $u  )
                 <option value="{{$u->id}}">{{$u->prenom}}  {{$u->nom}}</option>
@@ -44,7 +44,7 @@
 
                  <div class="col-md-6">
                    <label>Sélectionner un ordinateur:</label>
-                    <select name="nom">
+                    <select name="id_pc">
                     <option>Sélectionner un utilisateur</option>
                     @foreach ($pc as $pcs  )
                   <option value="{{$pcs->id}}">{{$pcs->label}}</option>
