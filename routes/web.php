@@ -32,11 +32,16 @@ Route::get('/liste', function () {
     return view('liste',compact('users') );
 });
 
-/*Route::get('/attribuer', function () {
-
+Route::get('/attribuer', function () {
+	$users = DB::table('students')->select('nom','prenom','id')->get();
+	$pc = DB::table('computers')->select('label','id')->get();
+	[
+		'users'=>$users,
+		'pc'=>$pc
+	];
 	
-    return view('attribuer');
+    return view('attribuer',compact('users','pc') );
 });
-*/
+Route::post('/attribuers','AttribuerController@store')->name("attribuers");
 
-Route::get('/attribuer','AttributionController@index')->name("attribuer");
+/*Route::get('/attribuer','AttributionController@index')->name("attribuer");*/

@@ -6,7 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
-
+                <a href="{{ route('ajout')}}">Créer un utilisateur</a> 
+                <a href="{{ route('attribuer')}}">Attribuer un utilisateur</a> 
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

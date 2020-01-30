@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AttributionController extends Controller
+class AttribuerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class AttributionController extends Controller
      */
     public function index()
     {
-        return view('attribuer');
+        //return view('attribuer');
     }
 
     /**
@@ -34,7 +34,7 @@ class AttributionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('azer');
     }
 
     /**
